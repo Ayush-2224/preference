@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Courses</title>
+    
+</head>
+<body>
+    <div class="container">
+        <h1>{{user.username}}</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>College Name</th>
+                    <th>Course Name</th>
+                    <th>College ID</th>
+                    <th>Course ID</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for college_course in college_courses %}
+                    <tr>
+                        <td>{{ college_course.0 }}</td>  <!-- College name -->
+                        <td>{{ college_course.1 }}</td>  <!-- Course name -->
+                        <td>{{ college_course.2 }}</td>  <!-- College ID -->
+                        <td>{{ college_course.3 }}</td>  <!-- Course ID -->
+                        <td><a href="{% url 'add_preference' college_course.2 college_course.3 %}">Add</a>
+                            <a href="{% url 'remove_preference' college_course.2 college_course.3 %}">Remove</a>
+                            
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

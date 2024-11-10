@@ -1,0 +1,153 @@
+<!-- students/templates/students/signup.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Signup</title>
+   
+    <style>
+        /* students/static/students/styles.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 300px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+}
+
+input {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: #5cb85c;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #4cae4c;
+}
+
+.message {
+    text-align: center;
+    margin: 10px 0;
+}
+
+.message.error {
+    color: red;
+}
+
+.message.success {
+    color: green;
+}
+/* students/static/students/styles.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 300px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: #5cb85c;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #4cae4c;
+}
+
+.message {
+    text-align: center;
+    margin: 10px 0;
+}
+
+.message.error {
+    color: red;
+}
+
+.message.success {
+    color: green;
+}
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Student Signup</h2>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="message {{ message.tags }}">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+    <form method="POST" action="{% url 'student_register' %}">
+        {% csrf_token %}
+        <!-- <input type="text" name="roll_no" placeholder="Roll Number" required> -->
+        <input type="text" name="c_name" placeholder="Candidate Name" >
+        <input type="text" name="gender" placeholder="Gender" >
+        <input type="date" name="dob" placeholder="Date of Birth" >
+        <input type="number" name="rank" placeholder="Candidate Rank" >
+        <input type="number" name="c_rank" placeholder="Candidate Rank" >
+        <input type="number" step="0.01" name="xii_percentage" placeholder="XII Percentage" >
+        <input type="text" name="category" placeholder="Category" >
+        <input type="text" name="nationality" placeholder="Nationality" >
+        <input type="text" name="address" placeholder="Address" >
+        <input type="email" name="email" placeholder="Email" >
+        <input type="text" name="phone" placeholder="Phone" >
+        
+        <button type="submit">Register</button>
+    </form>
+    <!-- <p>Already have an account? <a href="{% url 'student_login' %}">Login</a></p> -->
+</div>
+
+</body>
+</html>

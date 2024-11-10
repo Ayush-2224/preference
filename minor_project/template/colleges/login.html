@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Login</title>
+    <link rel="stylesheet" href="{% static 'colleges/style.css' %}">
+</head>
+<body>
+    <div class="form-container">
+        <h2>College Login</h2>
+        <form method="POST" action="{% url 'college_login' %}">
+            {% csrf_token %}
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Login</button>
+        </form>
+        <p>Don't have an account? <a href="{% url 'college_signup' %}">Sign up</a></p>
+    </div>
+</body>
+</html>

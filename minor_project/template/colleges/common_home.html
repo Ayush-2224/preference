@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="{% static 'colleges/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the College Allocation Portal</h1>
+        <div class="links">
+            <a href="{% url 'student_register' %}" class="register-link">Student Register</a>
+            <a href="{% url 'college_register' %}" class="register-link">College Register</a>
+            <a href="{% url 'college_login' %}" class="register-link">College Login</a>
+            <a href="{% url 'college_signup' %}" class="register-link">College Signup</a>
+            <a href="{% url 'student_login' %}" class="register-link">Student Login</a>
+            <a href="{% url 'student_signup' %}" class="register-link">Student Signup</a>
+        </div>
+    </div>
+</body>
+</html>
